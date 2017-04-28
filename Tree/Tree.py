@@ -249,7 +249,7 @@ class Tree:
                         print (i,file)
                         i+=1
                         
-                choose=input("Voici la liste des sous dossier présent, lequel voulez vous traiter ? \n mettre les numeros des dossier a NE PAS traiter, UN PAR UN.\n c-n° pour deplacer le dossier\nc-all pour tout deplacer \nsi aucun taper 'rien' une fois fini taper 'fin' le programme de trie démarrera.")
+                choose=input("Voici la liste des sous dossier présent, lequel voulez vous traiter ? \n mettre les numeros des dossier a NE PAS traiter, UN PAR UN.\n c-n° pour deplacer le dossier\nsi aucun taper 'rien' une fois fini taper 'fin' le programme de trie démarrera.")
 
                 if choose == "fin":
                         videur = True
@@ -268,34 +268,17 @@ class Tree:
 #rajout
                 elif choose.split("-")[0]=="c":
                     choose=choose.split("-")[1]
+                    choose=int(choose)
+                    choose=choose-1
+                    print(self.Bark["folder"][choose], " sera copié sans etre trié")
                     
-                    if choose == 1:
-                        
-                        choose=int(choose)
-                        choose=choose-1
-                        print(self.Bark["folder"][choose], " sera copié sans etre trié\n")
-                    
-                        if self.Bark.__contains__("Dir") is False:
-                            self.Bark["Dir"]=[self.Bark["folder"][choose]]
-                            del self.Bark["folder"][choose]
+                    if self.Bark.__contains__("Dir") is False:
+                        self.Bark["Dir"]=[self.Bark["folder"][choose]]
+                        del self.Bark["folder"][choose]
 
-                        elif self.Bark.__contains__("Dir") is True:
-                            self.Bark["Dir"].append(self.Bark["folder"][choose])
-                            del self.Bark["folder"][choose]
-                            
-                    elif choose=="all":
-
-                        print(self.Bark["folder"], " seront copiés sans etre triés\n")
-                    
-                        if self.Bark.__contains__("Dir") is False:
-                            self.Bark["Dir"]=[self.Bark["folder"]]
-                            del self.Bark["folder"]
-
-                        elif self.Bark.__contains__("Dir") is True:
-                            self.Bark["Dir"].append(self.Bark["folder"])
-                            del self.Bark["folder"]
-
-                        
+                    elif self.Bark.__contains__("Dir") is True:
+                        self.Bark["Dir"].append(self.Bark["folder"][choose])
+                        del self.Bark["folder"][choose]
 #
                 else:
                     choose=int(choose)
