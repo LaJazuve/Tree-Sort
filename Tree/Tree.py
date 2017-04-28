@@ -135,7 +135,7 @@ class Tree:
         while videur is False:
 
             print("Voici la liste des fichier trouver.\nsi vous voulez que certain fichier ne soit pas déplacer écrivez l'extension puis sont numéro de liste séparer d'un point \n ex : jpg.3,\n ou si vous avez fini ecrire 'fin'.")
-            print ("\n'all.ext*' pour retirer tout les elements d'une extension\n")
+            print ("all.extension pour retirer tout les elements d'une extension\n")
             choose=input()
 
             if choose == "fin":
