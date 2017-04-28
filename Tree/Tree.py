@@ -33,8 +33,11 @@ class Tree:
         videur=False
         while videur is False:
             
-            rp=input("Ecrire chemin du répertoir source.")
-
+           # rp=input("Ecrire chemin du répertoir source.")
+            rootk = tk.Tk()
+            rootk.withdraw()
+            rp=ask(parent=rootk, initialdir="/",title='Please select a source directory')
+            
             bol=os.path.exists(rp)
 
             if bol is True:
@@ -56,7 +59,11 @@ class Tree:
         videur = False
         while  videur is False:
             
-            rp=input("Ecrire chemin du répertoir de sorti.")
+          # rp=input("Ecrire chemin du répertoir de sorti.")
+          
+            rootk = tk.Tk()
+            rootk.withdraw()
+            rp=ask(parent=rootk, initialdir="/",title='Please select a source directory')
             
             if os.path.exists(rp) == False:
                 print ("ce repertoire n'existe pas, recommencer.")
@@ -249,7 +256,7 @@ class Tree:
                         print (i,file)
                         i+=1
                         
-                choose=input("Voici la liste des sous dossier présent, lequel voulez vous traiter ? \n mettre les numeros des dossier a NE PAS traiter, UN PAR UN.\n c-n° pour deplacer le dossier\nsi aucun taper 'rien' une fois fini taper 'fin' le programme de trie démarrera.")
+                choose=input("Voici la liste des sous dossier présent, lequel voulez vous traiter ? \n mettre les numeros des dossier a NE PAS traiter, UN PAR UN.\n \nc-n° pour deplacer le dossier\nsi Aucun dossier à trier ou à déplacer, taper 'rien'.\n\n Si tout déplacer taper 'allyes' \n\n une fois fini taper 'fin' le programme de trie démarrera.")
 
                 if choose == "fin":
                         videur = True
@@ -260,27 +267,32 @@ class Tree:
                           
                 elif choose=="allyes":
                     self.Allyess()
-                    videur =True
+                    videur =True# deplace tout ce qu'il reste
                     
 
                 elif choose =="quitter":
                     quit()
 #rajout
                 elif choose.split("-")[0]=="c":
+                    
                     choose=choose.split("-")[1]
                     choose=int(choose)
                     choose=choose-1
                     print(self.Bark["folder"][choose], " sera copié sans etre trié")
                     
                     if self.Bark.__contains__("Dir") is False:
+                        
                         self.Bark["Dir"]=[self.Bark["folder"][choose]]
                         del self.Bark["folder"][choose]
 
                     elif self.Bark.__contains__("Dir") is True:
+                        
                         self.Bark["Dir"].append(self.Bark["folder"][choose])
                         del self.Bark["folder"][choose]
 #
                 else:
+
+                   
                     choose=int(choose)
                     choose=choose-1
                     print (self.Bark["folder"][choose]," ne sera pas trié")
