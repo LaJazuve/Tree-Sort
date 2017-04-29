@@ -63,7 +63,7 @@ class Tree:
           
             rootk = tk.Tk()
             rootk.withdraw()
-            rp=ask(parent=rootk, initialdir="/",title='Please select a Out directory')
+            rp=ask(parent=rootk, initialdir="/",title='Please select a source directory')
             
             if os.path.exists(rp) == False:
                 print ("ce repertoire n'existe pas, recommencer.")
