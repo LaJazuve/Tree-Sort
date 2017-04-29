@@ -258,7 +258,7 @@ class Tree:
                         print (i,file)
                         i+=1
                         
-                choose=input("Voici la liste des sous dossier présent, lequel voulez vous traiter ? \n mettre les numeros des dossier a NE PAS traiter, UN PAR UN.\n \nc-n° pour deplacer le dossier\nsi Aucun dossier à trier ou à déplacer, taper 'rien'.\n\n Si tout déplacer taper 'allyes' \n\n une fois fini taper 'fin' le programme de trie démarrera.")
+                choose=input("Voici la liste des sous dossier présent, lequel voulez vous traiter ? \n mettre les numeros des dossier a NE PAS traiter, UN PAR UN.\n \nc-n° pour deplacer le dossier\nsi Aucun dossier à trier ou à déplacer, taper 'rien'.\n\nSi deplacer tout les dossier sans les triers taper 'c-all'\n Si deplacer tout les fichiers sans verifier : 'allyes' \n\n une fois fini taper 'fin' le programme de trie démarrera.")
 
                 if choose == "fin":
                         videur = True
