@@ -1,0 +1,6 @@
+-mettre des commande plus versatile pour les commande genre pouvoir faire:
+		-d=deplacer sans le trier+f=fichieroud=dir -t = trier all = tout s-=supprimer de la liste *exc+cmd=exception (tout sauf lui, expressio de l'inverse de la commande precedente)
+en gros standardisé oute les demandes commande et le rendre flexible.creer une fonction qui construit les commande ? rendre optionnel la dialogue bax, si certain prefere la saisir manuel
+-ajout d'un restart
+-mettre une conversation EXPlicite de ce que cela va faire(creer un phrase par rapport à la commande entrer)
+-supprimer les fichier vidés

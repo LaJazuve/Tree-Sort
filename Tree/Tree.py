@@ -136,6 +136,8 @@ class Tree:
                     print (i," - ",file,"\n")
                     i+=1
 
+
+
     def Sap (self):
 
         videur=False
@@ -186,7 +188,7 @@ class Tree:
                     os.makedirs(direct)
                     print ("Le répertoire ",direct," a été crée\n")
                 for F in self.Bark[key]:
-                    
+                    print (F)
                     Fdirect=(direct+slash+os.path.basename(F))
                     Fdirect.split("\\")
                     Fdirect.join(slash)
@@ -266,9 +268,13 @@ class Tree:
                     del self.Bark["folder"]
                           
                 elif choose=="allyes":
-                    self.Allyess()
-                    videur =True# deplace tout ce qu'il reste
+                    conf=input("\n\nEtes vous sur de voulais trier tout les fichier des sous dossier sans en verifier le contenues ? -o -n \n\n")
                     
+                    if conf=="o":
+                        self.Allyess()
+                        videur =True# deplace tout ce qu'il reste sans rien verifier
+                    else:
+                        videur=False
 
                 elif choose =="quitter":
                     quit()
@@ -276,19 +282,56 @@ class Tree:
                 elif choose.split("-")[0]=="c":
                     
                     choose=choose.split("-")[1]
-                    choose=int(choose)
-                    choose=choose-1
-                    print(self.Bark["folder"][choose], " sera copié sans etre trié")
                     
-                    if self.Bark.__contains__("Dir") is False:
-                        
-                        self.Bark["Dir"]=[self.Bark["folder"][choose]]
-                        del self.Bark["folder"][choose]
+                    if choose == "all":
 
-                    elif self.Bark.__contains__("Dir") is True:
+                        print(*self.Bark["folder"], " sera copié sans etre trié")
+                                
+                        if self.Bark.__contains__("Dir") is False:
                         
-                        self.Bark["Dir"].append(self.Bark["folder"][choose])
-                        del self.Bark["folder"][choose]
+                            self.Bark["Dir"]=self.Bark["folder"]
+                            del self.Bark["folder"]
+
+                        else:
+                        
+                            self.Bark["Dir"].append(self.Bark["folder"])
+                            del self.Bark["folder"]
+
+                        i+=1
+                                 
+                           # del self.Bark["folder"]
+
+                               
+                            
+##                         for ddir in self.Bark["folder"]:
+##
+##                        print(ddir, " sera copié sans etre trié")
+##                        if self.Bark.__contains__("Dir") is False:
+##                        
+##                            self.Bark["Dir"]=[ddir]
+##                            del ddir
+##
+##                        elif self.Bark.__contains__("Dir") is True:
+##                        
+##                             self.Bark["Dir"].append(ddir)
+##                            del ddir
+
+                    else:
+                        
+                        choose=int(choose)
+                        choose=choose-1
+                        
+                        print(self.Bark["folder"][choose], " sera copié sans etre trié")
+                    
+                        if self.Bark.__contains__("Dir") is False:
+                            
+                            self.Bark["Dir"]=[self.Bark["folder"][choose]]
+                            del self.Bark["folder"][choose]
+
+                        elif self.Bark.__contains__("Dir") is True:
+                            
+                            self.Bark["Dir"].append(self.Bark["folder"][choose])
+                            del self.Bark["folder"][choose]
 #
                 else:
 
